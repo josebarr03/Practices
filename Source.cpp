@@ -5,27 +5,16 @@
 using namespace std;
 
 void Ejemplopuntero();//Ejemplo clase arrays y punteros
+void ciclo();//Ciclo eleccion de tarea
 void ej1();//Ejercicio 1 Tarea
 void ej2();//Ejercicio 2 Tarea
-int Suma();//Funcion para ejercicio 2 Tarea
 void ej3();//Ejercicio 3 Tarea
 void ej4();//Ejercicio 4 Tarea
 void ej5();//Ejercicio 5 Tarea
 
 int main()
 {
-    Ejemplopuntero();
-    cout << endl;
-    cout << endl;
-    ej1();
-    cout << endl;
-    ej2();
-    cout << endl;
-    ej3();
-    cout << endl;
-    ej4();
-    cout << endl;
-    ej5();
+    ciclo();
 }
 
 void Ejemplopuntero()
@@ -81,18 +70,13 @@ void ej1()
 void ej2()
 {
     cout << "Tarea" << endl << "Segundo ejercicio" << endl << "Pedir un numero de 2 digitos, imprimir la suma entre esos digitos." << endl;
-    int suma;
-    suma = Suma();
-    cout << "El resultado es: " << suma << endl;
-}
-int Suma()
-{
-    cout << "Introduzca un primer numero, presione enter y luego introduzca el segundo." << endl;
-    int a;
-    int b;
-    cin >> a >> b;
-    int c = a + b;
-    return c;
+    int a, b;
+    int c, d;
+    cin >> c;
+    a = c / 10;
+    b = c % 10;
+    d = a + b;
+    cout << "El resultado es: " << d << endl;
 }
 void ej3()
 {
@@ -155,4 +139,44 @@ void ej5()
         }
 
     }
+}
+
+void ciclo()
+{
+    int eleccmen;
+    do // ciclo para repetir el menu hasta elegir la opcion salir
+    {
+        cout << endl << "Bienvenido al menu de tareas." << endl;
+        cout << "Tiene cinco opciones para elegir." << endl;
+        cout << "1- Primer ejercicio." << endl;
+        cout << "2- Segundo ejercicio." << endl;
+        cout << "3- Tercero ejercicio." << endl;
+        cout << "4- Cuarto ejercicio." << endl;
+        cout << "5- Quinto ejercicio." << endl;
+        cout << "6- Salir." << endl;
+        cin >> eleccmen;
+        switch (eleccmen) // switch para casos dependiendo de la opcion elegida
+        {
+        case 1:
+            ej1();
+            break;
+        case 2:
+            ej2();
+            break;
+        case 3:
+            ej3();
+            break;
+        case 4:
+            ej4();
+            break;
+        case 5:
+            ej5();
+            break;
+        case 6:
+            exit(EXIT_SUCCESS);
+        default:
+            cout << "Opcion elegida no valida, seleccione otra opcion" << endl;
+            break;
+        }
+    } while (eleccmen > 0 || eleccmen < 5);
 }
